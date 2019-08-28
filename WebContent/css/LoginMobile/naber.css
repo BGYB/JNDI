@@ -1,0 +1,65 @@
+@charset "UTF-8";
+			
+        	/* a{
+        		margin-left:15px;
+        	}  */
+        	.panel-group .panel{
+        		border-radius:0;
+        	}
+        	.panel-group .panel+.panel{
+        		margin-top:0;
+        	}
+        	.panel-default>.panel-heading{
+        		height:37px;
+        		background:-webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(25, 176, 255, 0.53)), color-stop(1, rgba(117, 207, 255, 0.51)));
+        		filter:alpha(opacity=100 finishopacity=10 style=1 startx=0,starty=150,finishx=-37,finishy=0) progid:DXImageTransform.Microsoft.gradient(startcolorstr=DeepSkyBlue ,endcolorstr=DeepSkyBlue ,gradientType=1);
+        	}
+        	
+        	.panel-default{
+        		border-color:transparent;
+        		border:nond;
+        	}
+        	 .panel-group li{
+        		height:34px;
+        		line-height:34px;
+        	} 
+        	.panel-group li:hover{
+        		background:#a1dbff;
+        	}
+        	.panel-group li a:hover{
+        		font-weight:bold;
+        		color:black;
+        		cursor: pointer;
+        	}
+        	.panel-group li a{
+        		color:white;
+        		padding:0 0 0 40px;
+        		font-size:0.9em;
+        		height:34px;
+        		display:block;
+        	}
+        	.panel-group a {display:block;}
+        	.panel-default>.panel-heading>.nav-title{
+				font-size:0.95em;
+				line-height:0;
+			}
+			.panel-default>.panel-heading>.nav-title a{
+				color:#333;
+			}
+			a:focus{outline:none;}
+        	/* 手机端导航样式 */
+			.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+				z-index:99999;
+			}
+			.page_one1,.page_two1,.page_three1,.page_four1,.page_five1{
+				display:none;
+			}
+			#header-if{
+				height:76px;
+			}
+			@media screen and (max-width: 768px) and (min-width: 330px){
+				#header-if{
+					height:113px;
+				}
+			}
+			

@@ -1,0 +1,675 @@
+/** 
+ * editTime: 18.03.14
+ * editUser: 锟斤拷锟斤拷
+ * description: 锟斤拷锟斤拷SMS锟睫革拷锟斤拷锟斤拷锟绞� 
+ *
+ * editTime: 18.04.26
+ * editUser: 鏉庡畞  V1.1.1[F14-S00-P00]_I
+ * description: 淇鍒楄〃椤甸潰鍦ㄥ钩鏉夸笅鍙互寰井鎷栧姩鐨勯棶棰�
+ */
+/*clean style*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+h1,h2,h3,h4,h5{
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+
+ol,ul{
+	list-style-type: none;
+}
+
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+a:hover{text-decoration: none;}
+
+.row{
+	width:100%;
+	margin-left:0 !important;
+	margin-right:0 !important;
+} 
+
+.btn{
+	height:34px;
+}
+.breadcrumb .active{
+	font-weight:bold;
+}
+/*----------锟斤拷锟斤拷锟斤拷 ----------*/
+/*  ::-webkit-scrollbar {display:none} */
+::-webkit-scrollbar{
+    width: 15px;
+    height: 16px;
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #dcedf8;
+} 
+
+/* 去锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟� */
+#indexbody::-webkit-scrollbar{
+	display:none;
+}
+#addIframe::-webkit-scrollbar{
+	display:none;
+}
+#addIframe{
+	background:transparent !important;
+}
+
+
+
+html,body{
+    width: 100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    overflow-x: hidden;
+}
+
+/* -----------------------------------------------锟斤拷锟斤拷锟斤拷式锟酵碉拷锟斤拷锟斤拷-----------*/
+/* 锟斤拷锟斤拷index页锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷页锟芥背锟斤拷为锟斤拷色 */
+body{
+    background:#ffffff;
+}
+/* MCS-index锟侥憋拷锟斤拷图 */
+#indexbody{
+	background: url('../../images/LoginMobile/changePassword/back.jpg') 0 -1000px #fbf1e5 no-repeat;
+	background-size: cover;
+	overflow:hidden;
+}
+/* combobox锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟叫� */
+.combobox-item, .combobox-group, .combobox-stick{
+	font-size:1.2em !important;
+}
+/* input锟斤拷锟斤拷示锟斤拷锟斤拷色 */
+.form-control::-webkit-input-placeholder{
+	color:#cecece;
+}
+/*footer*/
+footer {
+    color: #525252;
+    font-size: .85em;
+    height: 70px;
+    padding: 10px 0;
+    text-align: center;
+}
+#footer-if{
+    overflow: hidden;
+    margin-top:3%;
+}
+
+/* pc锟斤拷锟斤拷叩锟斤拷锟斤拷锟� */
+.box-pc{
+	display:block;
+	padding:0 !important;
+}
+/* 锟街伙拷锟斤拷锟斤拷叩锟斤拷锟斤拷锟� */
+.box-phone{
+	display:none;
+}
+
+/* -----------------------------页锟斤拷锟斤拷锟斤拷锟斤拷式---------------- */
+/* 锟斤拷页锟斤拷系统锟斤拷锟斤拷图 */
+#index_img{
+	width:50%;
+	margin-left:25%;
+}
+/*box*/
+.content,.content2{
+	/* width:100%; */
+    /* border-top: 1px #c0c0c0 solid; */
+    border-bottom:none;
+    background-color: rgba(255, 255, 255, 0.70);
+   /*  overflow-y:auto;
+    overflow-x: hidden; */
+}
+/* 锟斤拷询页锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷 */
+.content .breadcrumb,.manage-list,.content2 .breadcrumb,.manage-list{
+	height:40px !important;
+	line-height:40px !important;
+	background:rgba(253, 227, 200, 0.73);
+	border-radius:4px !important;
+}
+/* 锟斤拷签锟斤拷 */
+.content .breadcrumb,.content2 .breadcrumb{
+	/*180426 from 鏉庡畞   V1.1.1[F14-S00-P00]_I 淇鍒楄〃椤甸潰鍦ㄥ钩鏉夸笅鍙互寰井鎷栧姩鐨勯棶棰� */
+	/*margin-top:2% !important;*/
+	margin-top:10px !important;
+	font-size:0.88em !important;
+}
+.content .breadcrumb a,.content2 .breadcrumb a{
+	margin-left:0;
+}
+/* 页锟斤拷锟斤拷锟斤拷锟斤拷锟捷撅拷锟斤拷 */
+.content table tr,.content table td,.content table th,.content2 table tr,.content2 table td,.content2 table th{
+	text-align:center;
+}
+/* big title */
+/* .ManageTitle{
+   text-align:center;
+   height: 35px;
+   width: 180px;
+   position:relative;
+   border: 1px solid #ccc;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+   margin:10px 0 15px 0;
+ 
+} */
+/* big title h3 */
+/* .ManageTitle h3{
+	font-size:1.2em;
+    font-weight: bold;
+    margin-top: 0px; 
+    line-height:35px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+} */
+
+/*---------- 锟斤拷询锟斤拷----------*/
+.container{
+	width:99%;	
+}
+/*  锟斤拷锟叫诧拷询锟斤拷锟斤拷锟斤拷锟� */
+#querybox .row ,#long-querybox .row{
+	 margin-top:12px;
+}
+.addRow-add .row:first-child{
+	margin-top:50px !important;
+}
+.addRow-add .row:nth-child(2){
+	margin-top:0 !important;
+}
+/* 锟斤拷询锟斤拷锟斤拷小锟斤拷锟斤拷锟斤拷式 */
+#querybox label ,#long-querybox label{
+	font-size:0.95em;
+	line-height:34px;
+	color:#336699;
+}
+#querybox label {font-size:0.95em;}
+#long-querybox label {font-size:1em;}
+#querybox .col-lg-1, #long-querybox .col-lg-1{
+	text-align:center;
+}
+.query-label{
+	padding-left:0 !important;
+	padding-right:0 !important;
+}
+/* query button box */
+/* .btn-box{ 
+    margin-top:5% !important;
+}  */
+
+/*----------锟斤拷询锟斤拷锟斤拷锟叫憋拷锟斤拷式 ----------*/
+/* datagride锟叫憋拷呖锟� */
+.table-responsive{
+	border:none;
+}
+.form-control{
+	margin-top:-2px;
+}
+/* datagrid锟叫革拷 */
+.datagrid-row {  
+  height: 45px;  
+  text-align:center;  
+}
+/* datagrid锟斤拷锟斤拷锟斤拷锟斤拷 */
+.datagrid-header span {     
+	font-size: 14px !important; 
+}
+/* datagrid锟斤拷锟斤拷锟斤拷锟斤拷 */
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber{
+	font-size: 14px !important; 
+}
+
+/* 锟斤拷询锟斤拷锟斤拷锟斤拷锟捷憋拷锟斤拷 */
+.manage-list{
+	/*180426 from 鏉庡畞   V1.1.1[F14-S00-P00]_I 淇棣栭〉鍦╬c绔彲浠ュ井寰嫋鍔ㄧ殑闂*/
+	/*margin-top:1%;*/
+	margin-top:10px;
+}
+/* 锟斤拷询锟斤拷锟斤拷锟斤拷 */
+.manage-list span{
+	 font-size:1em;
+	 font-weight:bold;
+}
+/* 锟斤拷询title锟侥帮拷钮锟斤拷锟斤拷锟揭边的撅拷锟斤拷 */
+/* .manage-list .text-right{
+	padding-right:10px;
+} */
+
+
+/* 锟斤拷锟斤拷锟叫憋拷锟斤拷锟斤拷隙 */
+.list-table,.list-table2{
+	margin-top:15px;
+}
+.list-table span,.list-table2 span{
+	font-weight:bold;
+}
+/* 锟斤拷锟斤拷锟斤拷锟斤拷小 */
+table tr,table td, table th{
+	/* font-size:0.9em; */
+	font-size:1em\0;
+}
+/* 锟斤拷询锟叫憋拷锟斤拷锟斤拷诘陌锟脚� */
+.btn-hidden{
+	display:block;
+}
+.btn-show{
+	display:none;
+}
+
+/*----------锟斤拷页锟斤拷锟斤拷式---------- */
+/* 锟斤拷锟斤拷label锟侥匡拷锟� */
+.colorForm .row div:nth-child(1), .colorForm .row div:nth-child(4), .colorForm .row div:nth-child(7){
+	padding-right:0 !important;
+	/* padding-left:0 !important; */
+}
+/* 锟斤拷锟叫达拷锟斤拷锟� */
+.colorForm .page-title{
+	margin:.5em 0 1em 0;
+}
+.colorForm .page-title span{
+	font-size:25px;
+	border-bottom:2px dashed gray;
+	margin-bottom:10px;
+}
+/* 锟斤拷锟叫革拷锟斤拷锟斤拷 */
+.colorForm .apply-title h4{
+	background-color:#9dc1f7;
+	line-height:35px;
+	color:#fff;
+	font-size:1.2em;
+	text-align:center;
+	margin:10px auto;
+}
+/* 锟斤拷锟叫斤拷锟斤拷写锟斤拷锟斤拷 */
+.bignumber{
+	font-size:15px !important;
+}
+/* 锟斤拷锟叫关硷拷锟街憋拷锟斤拷 */
+.colorForm .row label{
+    line-height: 34px;
+    height: 34px;
+    padding: 0;
+    display: inline-block;
+    width:100%;
+    text-align:center;
+    background-color: rgba(93, 154, 246, 0.21);
+    color:#336699;
+    font-size:0.9em;
+} 
+/* 锟斤拷锟斤拷锟结交锟斤拷钮锟侥高讹拷 */
+.btn-height{
+	padding:30px 0;
+}
+/* button box锟阶诧拷锟教讹拷 */
+.row-bottom{
+	position:fixed;
+	bottom:0;
+	height:70px; 
+	line-height:65px;
+	background:#feebd7;
+	border-top:1px #e0ccb7 solid;
+	z-index:9000;
+	width:104%;
+}
+/* 锟斤拷锟斤拷锟叫帮拷钮锟斤拷锟斤拷input锟侥撅拷锟斤拷 */
+.dialog-btn{
+	padding-top:1.5em;
+}
+/* 锟斤拷锟叫★拷锟斤拷锟斤拷锟斤拷锟绞� */
+.list-title{
+	padding:10px 0;
+	font-size:1.2em;
+}
+.list-title b{
+	border-bottom:3px solid rgba(0, 99, 249, 0.60);
+	padding:0 0 0.5em 0;
+}
+/* datagrid锟铰凤拷锟斤拷锟斤拷锟狡伙拷锟斤拷 */
+.table-p{
+	font-size:14px;
+	line-height:1.3em;
+}
+/* 锟斤拷锟斤拷撞锟秸嘉� */
+.footer-height{
+	height:100px;
+}
+
+/*----------锟斤拷锟斤拷锟斤拷式---------- */
+/* 锟斤拷要锟斤拷示锟斤拷锟斤拷 */
+.world_tips{
+	color:#FF0000;
+	font-size:.9em;
+	padding:15px;
+}
+/* 锟斤拷锟斤拷锟皆碉拷锟� */
+.window{
+	border-style: none !important;
+}
+/* 锟斤拷锟斤拷title锟斤拷锟斤拷 */
+.panel-title{
+	font-size: 18px !important;
+}
+/* 锟斤拷要锟斤拷示锟斤拷锟斤拷 */ 
+.world_tips{
+	color:#FF0000;
+	font-size:.95em
+}
+.world_tips p{
+	margin:0;
+}
+
+/* ---------------------------------------------------------------锟街伙拷锟斤拷 -------------------------*/
+
+
+
+					/* ***** 小锟斤拷768锟街憋拷锟斤拷 ***** */			
+@media screen and (max-width:768px){
+	/* 锟斤拷锟斤拷锟斤拷 */
+	::-webkit-scrollbar{
+	    display: none;
+	}
+	::-webkit-scrollbar-track{
+	     display: none;
+	}
+	::-webkit-scrollbar-thumb{
+	     display: none;
+	}
+	
+	/*锟斤拷锟斤拷 */
+	.box-pc,.btn-hidden,.title2,.lct{
+		display:none;
+	}
+	.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
+		color:#fff !important;
+	}
+	
+	
+	/* 锟街伙拷锟剿碉拷锟斤拷锟斤拷锟斤拷锟斤拷锟剿碉拷锟斤拷锟斤拷为锟斤拷色 */
+	.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+		background:#ffffff;
+		/* border-top:1px #1b65ae solid !important; */
+		border-bottom:1px #1b65ae solid !important;
+	}
+	/* 锟街伙拷锟剿碉拷锟斤拷锟斤拷选锟叫憋拷锟斤拷锟斤拷色 */
+	.navbar-default .navbar-nav .open .dropdown-menu>.active>a, .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover{
+		background-color:#337ab7;
+	}
+	/*锟街伙拷锟斤拷锟斤拷示*/
+	.box-phone{
+		display:block;
+		/*180502 from 鏉庡畞   V1.1.1[F14-S00-P00]_I 淇鍦ㄧЩ鍔ㄧ淇敼瀵嗙爜绛夋寜閽湁鏃舵棤娉曠偣鍑荤殑bug*/
+		/* height:34px; */
+		height:1px;
+		margin-top:-40px;
+		z-index:9999999;
+	}
+	
+	
+	.breadcrumb{
+		margin-top:4%;
+	}
+	/* ----------锟斤拷询锟叫憋拷锟斤拷式---------- */
+	/* 锟斤拷询锟斤拷锟斤拷锟斤拷锟捷憋拷锟斤拷 */
+	.manage-list{
+		/*180426 from 鏉庡畞   V1.1.1[F14-S00-P00]_I 淇鍒楄〃椤甸潰鍦ㄥ钩鏉夸笅鍙互寰井鎷栧姩鐨勯棶棰�*/
+		margin-top:10px;
+	}
+	
+	/* .container label{
+	font-size:1em;
+	line-height:0;
+	margin-top:1.5%;
+	} */
+	/* .mar_top{
+		margin-top:1em;
+	}
+	.mar_top1{
+		margin-top:2em;
+	} */
+	/* query button box */
+	/* .btn-box{ 
+	    margin-top:8% !important;
+	}
+	 */
+	/* ----------页锟斤拷锟斤拷锟斤拷锟斤拷式---------- */
+	/* 锟斤拷签锟斤拷 */
+	/* .breadcrumb{
+		margin-bottom:0;
+		font-size:70%;
+	} */
+	
+	/*box*/
+	 .content, .content2{
+	    padding:0!important;
+	}
+	/* 锟斤拷页锟斤拷系统锟斤拷锟斤拷图 */
+	#index_img{
+		width:100%;
+		margin:0;
+		margin-bottom:5%;
+	}
+	/* 锟斤拷钮锟斤拷小 */
+	.btn-sm{
+		width:45px !important;
+	}
+    /* 锟斤拷锟叫关硷拷锟街憋拷锟斤拷 */
+	.colorForm .row label{
+		font-size:71%;
+		line-height:34px;
+	    padding:0;
+	    height:34px;
+	    display: inline-block;
+	    width:100%;
+	    text-align:center;
+	    background-color: rgba(93, 154, 246, 0.21);
+	} 
+	/* 锟斤拷要锟斤拷锟斤拷 */
+	.world_tips p{
+		text-indent:0 !important;
+	}
+ 
+}
+
+/* ***** ipad ***** */
+@media screen and (max-width:768px) and (min-width:768px){
+	/* 锟斤拷锟斤拷锟斤拷active锟斤拷式为透锟斤拷 */
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+		background:rgba(255,255,255,0)
+	}
+	/* 锟斤拷锟斤拷锟斤拷选锟叫伙拷色锟竭框弧讹拷 */
+	.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+		border-radius:5px;
+	}
+	/* 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为透锟斤拷 */
+	.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+		background:rgba(255,255,255,0)!important;
+		border-bottom:none !important;
+		
+	}
+	/* 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟剿碉拷锟斤拷锟斤拷为锟斤拷色 */
+	.dropdown-menu{
+		background:#ffffff;
+		font-size:.95em;
+	}
+	/* 锟斤拷锟斤拷锟斤拷选锟叫伙拷色锟斤拷锟节边撅拷 */
+	.navbar-nav>li>a{
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	/* 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷色 */
+	.navbar-default .navbar-nav>li>a{
+		color:#2f2f2f;
+	}
+	/* 锟斤拷锟斤拷锟斤拷 */
+	.nav2{
+		margin-top:2.5%;
+	}
+	
+}
+@media screen and (max-width: 768px) and (min-width: 330px){
+	.row-bottom{
+		height:70px;
+	}
+	/* MCS-index锟侥憋拷锟斤拷图 */
+	#indexbody{
+		 background: url("../../images/LoginMobile/changePassword/back.jpg") 0 -800px #fcf4eb no-repeat;
+	}
+	#indextwobody .title h2{
+		font-size:1.5em;
+	}
+	#indextwobody .title h3{
+		font-size:1.3em;
+	}
+	
+	/* MCS-index2页锟斤拷锟斤拷锟斤拷锟竭撅拷 */
+	#indextwobody .panel-noscroll{
+		padding:0;
+		margin-top:8%;
+	}
+	
+}
+@media screen and (max-width:450px) and (min-width:330px){	
+	/* 锟斤拷询锟斤拷锟斤拷锟斤拷锟捷憋拷锟解按钮锟斤拷示 */
+	.btn-show{
+		width:100%;
+		height:100px;
+		background:#feebd7;
+		display:block;
+		position:fixed;
+		margin-top:70px;
+		border-top:1px #e0ccb7 solid;
+		bottom:0;
+		text-align:center;
+		line-height:65px;
+	}
+	/* 锟斤拷询锟斤拷锟斤拷锟斤拷锟叫憋拷锟斤拷锟斤拷 */
+	.table-responsive{
+		margin-bottom:70px;
+	}
+}
+
+/* iPhone5*/
+@media screen and (max-width:320px) {
+	#indexbody{
+		background:url('../../images/LoginMobile/changePassword/back.jpg') 0 -1000px #fbf1e5 no-repeat
+	}
+	.box-phone{
+		margin-top:-10px;
+	}
+	header .logo a img {
+        width: 250px;
+    }
+	.col-lg-1{
+		padding-right:0 !important;
+	}
+} 
+
+
+
+/* 锟斤拷私锟斤拷 */
+#sh_table label{
+	width:160px;
+}
+/*180314 from 锟斤拷锟斤拷  锟斤拷锟斤拷SMS锟睫革拷锟斤拷锟斤拷锟绞� */
+/*
+.yj_table{
+	float:right;
+	line-height:33px;
+}
+*/
+#sh_table .col-xs-5 label,#sh_table .col-xs-5 font{
+	text-align: center;
+}
+#sh_table .col-xs-5{
+	text-align: left;
+}
+.sh_col{
+	padding-right:15px;
+	padding-left: 15px;
+}
+@media screen and (max-width:1126px){
+	#sh_table label{
+		width:110px;
+		font-size:0.8em;
+	}
+}
+@media screen and (max-width:768px){
+	/*180314 from 锟斤拷锟斤拷  锟斤拷锟斤拷SMS锟睫革拷锟斤拷锟斤拷锟绞� */
+	.sh_col{
+		padding-right:5px !important;
+		padding-left:5px !important;
+		border-top:1px dashed #cccccc;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	#sh_table .col-xs-5{
+		text-align: left;
+	}
+	#sh_table .col-xs-5 label{
+		text-align: left;
+		text-indent: 5px;
+	}
+	#sh_table .col-xs-5 font{
+		margin-left:5px;
+	}
+	
+	
+	#sh_table .col-ms-4,#sh_table .col-xs-4{
+		padding:0;
+		
+	}
+	#sh_table .row{
+		text-align: center;
+		margin-top:0;
+		/* border-bottom:1px solid #eaeaea; */
+		
+	}
+	#sh_table label{
+		width:100%;
+	}
+	.yj_table{
+		float:none;
+		line-height:20px;
+		font-size:0.95em;
+	}
+	.adu_titlestyle{
+	line-height:33px;
+	}
+	#auditedit .font_size{
+		font-size: 18px !important;
+	}
+}
+#auditedit .font_size{
+	font-size: 15px;
+}
+.adu_tablestyle{
+	background:#e2e2e2; 
+	border-radius:5px;
+	height:35px;
+}
+
+.adu_tablestyle img{
+	margin-top:-10px;
+}
+.window-proxy-mask, .window-mask{
+	background:#afafaf;
+}
+
+

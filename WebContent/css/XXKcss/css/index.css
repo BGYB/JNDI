@@ -1,0 +1,131 @@
+/*clean style*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+h1,h2,h3,h4,h5{
+    font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+
+html,body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+body{
+    background: url("../images/back.jpg") 0 -1000px #fcf4eb no-repeat;
+    background-size: cover;
+}
+
+.col-lg-3 b{
+    font-size: 1.16em;
+}
+
+
+
+
+.manage-list .col-lg-6 h4{
+    font-size: 1.5em !important;
+}
+/* 多行间距 */
+.bg-box .row{
+	margin-top:10px;
+	
+}
+.btn-box{
+    margin-top: 34px !important;
+}
+.colorForm{
+    margin-top: 40px;
+}
+.colorForm table{
+	width:100%;
+	text-align: center;
+	font-size:113%;
+}
+/* 按钮行样式 */
+.manage-list{
+	margin-top:31px;
+	padding:5px 5px 5px 20px;
+	background: rgba(255, 255, 255, 0.79);
+	height:43px;
+	/*line-height:30px;*/
+	border-radius:4px;
+}
+
+
+/*移动端换行*/
+.addrow{
+    display: block;
+    margin-top: 44px;
+}
+
+.phone_btn{
+    display: none;
+}
+
+.combo{
+    width: 100% !important;
+}
+
+/*弹框标题*/
+.panel-title{
+    font-size: 1.1em;
+}
+#Need_QlCount,#Need_QlCount1{
+    width: 700px;
+    height: 400px;
+}
+
+
+@media all and (max-width:768px) {
+    .manage-list .col-lg-6 h4{
+        font-size: 1.2em !important;
+    }
+    .manage-list .col-xs-9{
+        padding-left: 0;
+    }
+
+}
+@media all and (max-width:550px) {
+    /*查询条件*/
+    .colorForm{
+        margin-top: 20px;
+    }
+    .phone_btn{
+        display: block;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        position:fixed;
+        background: #ffead2;
+        z-index: 99;
+    }
+    .text-right{
+        display:none;
+    }
+    .manage-list{
+        margin-top: 20px;
+        background: rgb(255, 234, 210);
+    }
+    #Need_QlCount,#Need_QlCount1{
+        width: 320px !important;
+        height: 480px !important;
+    }
+    .list-style{
+        margin-bottom: 20px;
+    }
+
+    /*弹框内的下拉框*/
+    #Need_QlCount .col-xs-5{
+        padding:0;
+    }
+}

@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/***********初始化***********/
+*{padding: 0;margin: 0;letter-spacing: 1px;}
+em{font-style:normal}
+li{list-style:none}
+p{word-wrap:break-word}
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+a:hover{text-decoration: none;cursor: pointer}
+/*----------滚动条 ----------*/
+/*  ::-webkit-scrollbar {display:none} */
+::-webkit-scrollbar{
+    width: 15px;
+    height: 16px;
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #866060;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+    background: url("../../images/LoginMobile/pic1.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+/*背景上的蒙版*/
+.bg_white{
+    position: absolute;
+    background: rgba(227, 255, 245, 0.3);
+    opacity:0.5;
+    width: 100%;
+    height: 100%;
+}
+
+/*页面内容*/
+.container{
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    /*margin-top:3%;*/
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*form表单*/
+.form-horizontal{
+    padding:0 2em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin:2% 0;
+}
+.form-horizontal label{
+    font-size: 1.1em;
+}
+.form-horizontal .control-label{
+    text-align: left;
+}
+.form-group{
+    margin-bottom:25px;
+}
+
+
+
+
+@media screen and (max-width: 500px){
+    /* 滚动条 */
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    ::-webkit-scrollbar-track{
+        display: none;
+    }
+    ::-webkit-scrollbar-thumb{
+        display: none;
+    }
+    .form-control{
+        padding:5px;
+    }
+    /*页面内容*/
+    .container{
+        /*width: 90%;*/
+        /*margin-top:15px;*/
+    }
+
+    /*选择专业*/
+    .form-horizontal{
+        padding:0;
+    }
+    .form-group{
+        margin-bottom:15px;
+    }
+    .form-group .col-xs-5{
+        padding-right: 0;
+        line-height: 34px;
+        text-align: left;
+    }
+    .form-group .col-xs-6{
+        line-height: 34px;
+    }
+
+    .last_form label{
+        margin-bottom:2px;
+    }
+
+}
+@media screen and (max-width: 376px){
+    .form-group{
+        margin-bottom:8px;
+    }
+}
