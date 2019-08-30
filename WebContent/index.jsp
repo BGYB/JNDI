@@ -39,7 +39,7 @@
 	<div style="">
 	
 		<!-- 工具栏按钮 -->
-		<div data-options="region:'center'" style="width:100%; max-width:300px;height:100%;">
+		<div data-options="region:'center'" style="width:100%; max-width:666px;height:100%;">
 			<div  title="" style="background:#fafafa;height:30px;">
 				<table  class = "tablestyle" width = "100%">
 					<tr>
