@@ -55,6 +55,7 @@
 				</table>
 			</div>
 			
+			<!-- 条件搜索 -->
 			<table id="ee" singleselect="true" width="666px" class="tablestyle">
 			<tr>
 				<td style="width:100px;" class="titlestyle">模糊查询</td>
@@ -149,8 +150,6 @@
 	var TYPE=""; //操作类型
 	var pageNum = 1;   //datagrid初始当前页数
 	var pageSize = 20; //datagrid初始页内行数
-	var NAME="";   //搜索框变量
-	
 	
 	
 	initData(); //调用查询全部初始化信息方法
