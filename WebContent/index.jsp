@@ -52,36 +52,34 @@
 							<a id="copy" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-begin'">复制</a>  -->
 						</td>
 					</tr>
+				</table>
+			</div>
 			
-				</table>
-			</div>
-			<div id="grid" style="width:100%;">
-				<table id='list' width="100%" >
-				</table>
-			</div>
+			<table id="ee" singleselect="true" width="666px" class="tablestyle">
+			<tr>
+				<td style="width:100px;" class="titlestyle">模糊查询</td>
+				<td>
+					<input name="ZYDM_CX" id="name" class="easyui-textbox" style="width:180px;"/>
+				</td>
+				<td style="width:100px;" class="titlestyle">编号</td>
+				<td>
+					<input name="ZYMC_CX" id="id" class="easyui-textbox" style="width:180px;"/>
+				</td>
+				<td style="width:196px;" align="center">
+					<a href="#" onclick="doToolbar(this.id)" id="query" class="easyui-linkbutton" plain="true" iconcls="icon-search">查询</a>
+				</td>				
+			</tr>
+	    </table>
 		</div>
 		
 			
 	
 		<!-- 数据表格 -->
-		<table id="teatable" class="tablestyle" width="566px">
+		<table id="teatable" class="tablestyle" width="666px">
 			<!-- 输入框 -->
-			<input class="easyui-searchbox" data-options="prompt:'请输入',searcher:doSearch" style="width:100%;max-width:300px;">	
+			<!-- <input class="easyui-searchbox" data-options="prompt:'请输入',searcher:doSearch" style="width:100%;max-width:300px;">	 -->
 		</table>
 	</div>
-	
-	<!-- 用户个人信息 -->
-	<!-- <div id="yh" style="border: 1px solid red;width:400px; display: none;" >
-	<form action="#">
-	<input type="hidden" id="active" value="tgadd">
-	<p>年龄：<input type="text" id="age" value=""></p>
-	<p>用户名：<input type="text" id="name" value=""></p>
-	<p>密码：<input type="text" id="pwd" value=""></p>
-	<p>所在地区：<input type="text" id="addess" value=""></p>
-	<p><input type="button" id="tj" value="提交数据"><input type="reset" value="清空数据"></p>
-	</form>
-	</div> -->
-	
 	
 
 	<!-- 弹窗div -->
@@ -149,12 +147,17 @@
 	var PWD="";
 	var ADDESS="";
 	var TYPE=""; //操作类型
-
-
+	var pageNum = 1;   //datagrid初始当前页数
+	var pageSize = 20; //datagrid初始页内行数
+	var NAME="";   //搜索框变量
+	
+	
+	
+	initData(); //调用查询全部初始化信息方法
 
 
 //搜索框
-function doSearch(value){
+<%-- function doSearch(value){
     alert('You input: ' + value);
     var name=value;
 		$('#teatable').datagrid({
@@ -195,7 +198,7 @@ function doSearch(value){
 		});
     
 }
-
+ --%>
 
 $(document).ready(function(){
 	//loadGridTea();
@@ -204,131 +207,38 @@ $(document).ready(function(){
 	$(".a1").click(function name() {
 		var str='';
 		alert("1");
-		
-		<%-- $.ajax({
-			url:"<%=request.getContextPath()%>/Svl_index2?active=queaudittg",
-			type:"post",
-			dataType:"json",
-			success:function(data) {
-				if(data!=null){
-					console.log(data);
-					console.log("数组长度"+data.length);
-					str+='<tr><td><a href="#">编号</td></a><td>年龄</td><td>用户名</td><td>密码</td><td>所在区域</td><td>操作</td></tr>';
-					 for(var i=0;i<data.length;i++){
-						str+='<tr><td><a href="javascript:void(0)" name='+data[i].id+' id="xg">'+data[i].id+'</a></td><td>'+data[i].age+'</td><td>'+data[i].name+'</td><td>'+data[i].pwd+'</td><td>'+data[i].addess+'</td><td><a href="javascript:void(0)" id="sc" name='+data[i].id+'>删除</a></tr>';
-						$("#a2").html(str); 
-					}
-					
-				}else{
-					alert("请求失败!");
-				}; 
-				
-			},
-			
-			
-		}); --%>
-		
-		
-		$('#teatable').datagrid({
-			url: '<%=request.getContextPath()%>/Svl_index2',
- 			queryParams: {"active":"queaudittg"},
-			loadMsg : "信息加载中请稍后!",//载入时信息
-			width:666,
-			height:346,
-			rownumbers: true,
-			animate:true,
-			striped : true,//隔行变色
-			pageSize : 10,//每页记录数
-			singleSelect : true,//单选模式
-			pageNumber : 1,//当前页码
-			pagination:true,
-			fit:false,
-			fitColumns: true,//设置边距
-			columns:[[
-				{field:'ckt',checkbox:true},
-				{field:'id',title:'id',width:100,align:'center'},
-				{field:'age',title:'年龄',width:100,align:'center'},
-				{field:'name',title:'姓名',width:100,align:'center'},
-				{field:'pwd',title:'密码',width:100,align:'center'},
-				{field:'addess',title:'所在区域',width:100,align:'center'}
-			]],
-			onSelect:function(rowIndex,rowData){
-				<%--  $.ajax({
-						url:"<%=request.getContextPath()%>/Svl_index2?active=queaudittg2&id="+rowData.id,
-						type:"post",
-						dataType:"json",
-						success:function(data){
-							 $("#yh").show();
-							alert(data.rows[0].name);
-							console.log(data);
-							console.log("数组长度"+data.rows.length);
-							 $("#age").val(data.rows[0].age); 
-							 $("#name").val(data.rows[0].name);  
-							 $("#pwd").val(data.rows[0].pwd); 
-							 $("#addess").val(data.rows[0].addess);   
-						},
-						
-					});   --%>
-					console.log(rowData);
-					//当选中事件触发时全局变量拿到值;
-					ID=rowData.id;
-					AGE=rowData.age;
-					NAME=rowData.name;
-					PWD=rowData.pwd;
-					ADDESS=rowData.addess;
-			},
-			onUnselect:function(rowIndex,rowData){
-				alert("2");
-			},
-			onLoadSuccess: function(data){
-				
-				alert("数据查询成功！");
-			},
-			onLoadError:function(none){
-				alert("系统错误");
-			}
-		});
-		
+		initData(); //调用查询全部初始化方法
 		
 	});
 	
-	<%-- //传入id删除
-	$(document).on('click',"#sc",function(){
-		var id = $(this).attr('name');
-		alert(id);
-		$.ajax({
-			url:"<%=request.getContextPath()%>/Svl_index2?active=deleteaudit&id="+id,
-			type:"post",
-			dataType:"json",
-			success:function(data){
-				if(data[0].MSG=="删除成功"){
-					//alert(data[0].MSG);
-					alert("删除成功！");
-					window.location.reload();  //刷新当前页面
-				}else{
-					alert("删除失败！");
-					window.location.reload();  //刷新当前页面
-				} 
-				
-			}
-			
-		});
-		
-	});   --%>
 	
 });
+
+
+
+
+
+
 
 
 
 //工具按钮方法
 function doToolbar(iToolbar){
 	
+	
+	//点击查询
+	if(iToolbar == "query"){
+		//全局变量得到数据
+		NAME = $('#name').textbox('getValue'); 
+		ID = $('#id').textbox('getValue');
+		initData2();//调用有参数查询时的方法
+	}
+	
 	//点击新建按钮
 	if(iToolbar == "new"){ 
 		$('#win').dialog({   
 			title: '新建用户'
 		});
-		
 		TYPE="new";//操作类型新建用户操作
 		$('#win').dialog("open");  //让#win弹窗显示
 	}
@@ -367,12 +277,13 @@ function doToolbar(iToolbar){
 		}else{
 			if(ID!=""){
 				ConfirmMsg("是否确定删除？", "dele()","");
+				}
 			}
-			
-		}
+		
 	}
 	
-
+	
+	
 }
 
 
@@ -388,7 +299,6 @@ function add() {
 	var addess2=$("#addess2").val(); 
 	
 	var url="";
-	
 	//根据操作类型决定请求方法
 	if(TYPE=="new"){
 		url="<%=request.getContextPath()%>/Svl_index2?active=tgadd&age="+age2+"&name="+name2+"&pwd="+pwd2+"&addess="+addess2;
@@ -425,11 +335,12 @@ function dele() {
 		success:function(data){
 			if(data[0].MSG=="删除成功"){
 				//alert(data[0].MSG);
-				alert("删除成功！");
-				window.location.reload();  //刷新当前页面
+				alertMsg("删除成功！");
+				setTimeout(initData,3000);
+				//initData(); //调用查询全部初始化信息方法
+				//window.location.reload();  //刷新当前页面
 			}else{
-				alert("删除失败！");
-				window.location.reload();  //刷新当前页面
+				alertMsg("删除失败！");
 			} 
 			
 		}
@@ -458,6 +369,100 @@ function loadDialog() {
 	});
 
 }
+
+
+
+
+
+//初始化查询全部
+function initData() {
+	 $.ajax({
+		 type:"post",
+		url:"<%=request.getContextPath()%>/Svl_index2",
+		data :'active=queaudittg&page='+pageNum+'&rows='+pageSize,
+		dataType:"json",
+		success:function(data) {
+			/* console.log(data); */
+			console.log("data[0]"+data[0].listData);			
+			finall(data[0].listData);
+		},
+	});
+}
+
+
+//有参数查询时
+function initData2() {
+	alert(NAME+"SSS"+ID);
+	 $.ajax({
+		 type:"post",
+		url:"<%=request.getContextPath()%>/Svl_index2",
+		data :'active=queaudittg2&page='+pageNum+'&rows='+pageSize+'&name='+NAME+'&id='+ID,
+		dataType:"json",
+		success:function(data) {
+			console.log("data[0]2"+data[0].listData);		
+			
+			finall(data[0].listData);  //调用数据网格拼接参数的方法，传返回参数中名为listData的数组
+		},
+	});
+}
+
+
+
+
+
+
+
+
+//主体网格显示数据方法
+function finall(listData) {
+	$('#teatable').datagrid({
+		<%-- url: '<%=request.getContextPath()%>/Svl_index2',
+		queryParams: {"active":"queaudittg"}, --%>
+		data:listData,  //得到参数，下面直接取
+		loadMsg : "信息加载中请稍后!",//载入时信息
+		width:666,
+		height:346,
+		rownumbers: true,
+		animate:true,
+		striped : true,//隔行变色
+		singleSelect : true,//单选模式
+		pagination:true,
+		fit:false,
+		fitColumns: true,//设置边距
+		columns:[[
+			{field:'ckt',checkbox:false},
+			{field:'id',title:'编号',width:100,align:'center'},
+			{field:'age',title:'年龄',width:100,align:'center'},
+			{field:'name',title:'姓名',width:100,align:'center'},
+			{field:'pwd',title:'密码',width:100,align:'center'},
+			{field:'addess',title:'所在区域',width:100,align:'center'}
+		]],
+		onSelect:function(rowIndex,rowData){
+				console.log(rowData);
+				//当选中事件触发时全局变量拿到值;
+				ID=rowData.id;
+				AGE=rowData.age;
+				NAME=rowData.name;
+				PWD=rowData.pwd;
+				ADDESS=rowData.addess;
+		},
+		onUnselect:function(rowIndex,rowData){
+			alert("2");
+		},
+		onLoadSuccess: function(data){
+			
+			alertMsg("数据查询成功！");
+		},
+		onLoadError:function(none){
+			//alertMsg("系统错误！");
+			//alert("系统错误");
+		}
+	});
+}
+
+
+
+
 
 
 </script>

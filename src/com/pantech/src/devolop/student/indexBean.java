@@ -57,44 +57,32 @@ public class indexBean {
 	
 	
 	
-	//查询
-	public Vector query(int pageNum, int page) throws SQLException {
+	//查询全部及条件查询
+	public Vector query(int pageNum, int page,String name,String id) throws SQLException {
 		
 		DBSource db = new DBSource(request); // 数据库对象
 		String sql = ""; // 查询用SQL语句
 		Vector vec = null; // 结果集
-		sql = "SELECT[id],[age] ,[name],[pwd],[addess]FROM [student].[dbo].[Table4] where 1=1";
+		sql = "SELECT[id],[age] ,[name],[pwd],[addess]FROM [student].[dbo].[Table4]";
+		
+		if(name!=""&&id!=""){
+			sql += "where name like '%"+ MyTools.fixSql(this.getName()) +"%' and id='"+Integer.parseInt(this.getId())+"'";
+		}
+		
+		if(name!=""&&id=="") {
+			sql += "where name like '%"+ MyTools.fixSql(this.getName()) +"%'";
+		}
+		
+		if(id!=""&&name=="") {
+			sql += "where id='"+Integer.parseInt(this.getId())+"'";
+		}
+		
 		vec = db.getConttexJONSArr(sql,pageNum, page);
 		return vec;
 		
 		
 	}
 	
-	
-	//根据id查询
-		public Vector query2(int pageNum, int page) throws SQLException {
-			
-			DBSource db = new DBSource(request); // 数据库对象
-			String sql = ""; // 查询用SQL语句
-			Vector vec = null; // 结果集
-			sql = "SELECT[id],[age] ,[name],[pwd],[addess]FROM [student].[dbo].[Table4] where id='"+Integer.parseInt(this.getId())+"'";
-			vec = db.getConttexJONSArr(sql,pageNum, page);
-			return vec;
-			
-		}
-		
-		//模糊查询
-		public Vector likename(int pageNum, int page) throws SQLException {
-					
-			DBSource db = new DBSource(request); // 数据库对象
-			String sql = ""; // 查询用SQL语句
-			Vector vec = null; // 结果集
-			sql = "SELECT[id],[age] ,[name],[pwd],[addess]FROM [student].[dbo].[Table4] where name like '%" + MyTools.fixSql(this.getName()) +"%'"; 
-			vec = db.getConttexJONSArr(sql,pageNum, page);
-			return vec;
-			}		
-		
-		
 		
 	
 	
@@ -124,15 +112,12 @@ public class indexBean {
 	public void tgadd() throws SQLException{
 		DBSource db = new DBSource(request);// 数据库对象
 		String sql="";
-		//int curaudit=this.curaudit();
 		int edition=0;
-		//int curtgaudit=this.curtgaudit();
 		sql = "INSERT INTO Table4(age,name,pwd,addess) VALUES("+
 		"'" + MyTools.fixSql(this.getAge())+ "'," + 
 		"'" + MyTools.fixSql(this.getName())+ "'," + 
 		"'" + MyTools.fixSql(this.getPwd())+ "'," + 
 		"'" + MyTools.fixSql(this.getAddess())+ "')"; 
-		//db.executeInsertOrUpdate(sql);
 		if(db.executeInsertOrUpdate(sql)){
 			setMsg("保存成功");
 		}else{

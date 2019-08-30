@@ -415,7 +415,36 @@ $.messager.defaults={ok:"确定",cancel:"取消"};
 
 
 
+<!-- 手风琴 -->
 
+<script type="text/javascript">
+	$( function() {
+		$('#aa').accordion( {
+			width : 400,
+			height : 200,
+			fit : false
+		});
+	});
+</script>
+
+	<div id="aa" border="true">
+		<div title="Title1" icon="icon-save"
+			style="overflow: auto; padding: 10px;">
+			<h3 style="color: #0099FF;">Accordion for jQuery</h3>
+			<p>Accordion is a part of easyui framework for jQuery. It lets
+				you define your accordion component on web page more easily.</p>
+		</div>
+		<div title="Title2" icon="icon-reload" selected="true"
+			style="padding: 10px;">content2</div>
+		<div title="Title3">content3</div>
+	</div>
+
+
+
+
+
+
+<!-- Table切换 -->
 
 
 
