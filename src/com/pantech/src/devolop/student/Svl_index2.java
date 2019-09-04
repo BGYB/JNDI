@@ -42,8 +42,11 @@ public class Svl_index2 extends HttpServlet {
 		Vector jsonV = null; //返回结果集
         JSONArray jal =null;//返回json对象
         indexBean bean = new indexBean(request);  //indexBean获得request对象
+        
+        newindexBean bean2 = new newindexBean(request);  //newindexBean获得request对象
        
         this.getFormData(request, bean); 
+        this.getFormData2(request, bean2); 
 		String active = MyTools.StrFiltr(request.getParameter("active"));//前台取值
 		int pageNum = MyTools.parseInt(request.getParameter("page"));	//获得页面page参数 分页
 		int pageSize = MyTools.parseInt(request.getParameter("rows"));	//获得页面rows参数 分页
@@ -55,7 +58,7 @@ public class Svl_index2 extends HttpServlet {
 			
 				
 			try {
-				jsonV = bean.query(pageNum,pageSize,"",""); // 通过indexBean查询数据库Vector集合得到结果集
+				jsonV = bean.query(pageNum,pageSize,"","",""); // 通过indexBean查询数据库Vector集合得到结果集
 				jal = (JSONArray) jsonV.get(2); // Vector转换JSON数据
 				
 				//JsonUtil.addJsonParams中的方法是为JSON中添加参数，有三个参数1：JSONArray对象，2： 新增的key，3：新增的value
@@ -83,7 +86,6 @@ public class Svl_index2 extends HttpServlet {
 				System.out.println(request.getParameter("id") + "id值");
 
 				boolean retuls = bean.deleteAudit();
-				System.out.println(bean.getMsg() + "dddddddddddddddddddddd");
 				jal = JsonUtil.addJsonParams(jal, "MSG", bean.getMsg());
 				response.getWriter().write(jal.toString());
 
@@ -110,12 +112,13 @@ public class Svl_index2 extends HttpServlet {
 			
 			String name = MyTools.StrFiltr(request.getParameter("name"));
 			String id = MyTools.StrFiltr(request.getParameter("id"));
+			String userid = MyTools.StrFiltr(request.getParameter("userid"));
 			
 			try {
 				bean.setId(MyTools.StrFiltr(request.getParameter("id")));// id
 				System.out.println(request.getParameter("id") + "id值");
 
-				jsonV = bean.query(pageNum,pageSize,name,id); // 通过indexBean查询数据库Vector集合得到结果集
+				jsonV = bean.query(pageNum,pageSize,name,id,userid); // 通过indexBean查询数据库Vector集合得到结果集
 				jal = (JSONArray) jsonV.get(2); // Vector转换JSON数据
 
 				jal = JsonUtil.addJsonParams(jal, "listData", "{\"total\":" + MyTools.StrFiltr(jsonV.get(0)) + ",\"rows\":" + jal.toString() + "}");
@@ -142,6 +145,22 @@ public class Svl_index2 extends HttpServlet {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+	
+		
+		//树
+		}else if("queauTree".equalsIgnoreCase(active)) {
+			String tid = MyTools.StrFiltr(request.getParameter("tid"));
+
+			try {
+				// 查询列表
+				jsonV = bean2.query(tid);
+				jal = (JSONArray) jsonV.get(2);
+				response.getWriter().write(jal.toString());
+				TraceLog.Trace(jal.toString());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 		
@@ -151,14 +170,22 @@ public class Svl_index2 extends HttpServlet {
 	
 	
 	
-	//获取请求参数
+	//indexBean获取请求参数
 	private void getFormData(HttpServletRequest request, indexBean bean) {
 		bean.setId(MyTools.StrFiltr(request.getParameter("id")));
 		bean.setAge(MyTools.StrFiltr(request.getParameter("age")));
 		bean.setName(MyTools.StrFiltr(request.getParameter("name")));
 		bean.setPwd(MyTools.StrFiltr(request.getParameter("pwd")));
+		bean.setUserid(MyTools.StrFiltr(request.getParameter("userid")));
 		bean.setAddess(MyTools.StrFiltr(request.getParameter("addess")));
 	}
 
+	
+	//newindexBean获取请求参数
+	private void getFormData2(HttpServletRequest request,newindexBean bean){
+		bean.setId(MyTools.StrFiltr(request.getParameter("id")));//权限代码
+		bean.setNj(MyTools.StrFiltr(request.getParameter("nj"))); //授课计划明细编号
+		bean.setTid(MyTools.StrFiltr(request.getParameter("tid"))); //授课计划主表编号
+	}
 
 }

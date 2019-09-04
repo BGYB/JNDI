@@ -19,4 +19,14 @@
     <servlet-name>Svl_index2</servlet-name>
     <url-pattern>/Svl_index2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Svl_newindexBean</display-name>
+    <servlet-name>Svl_newindexBean</servlet-name>
+    <servlet-class>com.pantech.src.devolop.student.Svl_newindexBean</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Svl_newindexBean</servlet-name>
+    <url-pattern>/Svl_newindexBean</url-pattern>
+  </servlet-mapping>
 </web-app>

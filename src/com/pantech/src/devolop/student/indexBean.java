@@ -23,6 +23,7 @@ public class indexBean {
 	private	String name;
 	private	String pwd;
 	private	String addess;
+	private	String userid;
 	
 	private String msg;
 	private HttpServletRequest request;
@@ -37,6 +38,7 @@ public class indexBean {
 			name = "";
 			pwd = "";
 			addess = "";
+			userid = "";
 			msg = "";
 		}
 	
@@ -58,23 +60,27 @@ public class indexBean {
 	
 	
 	//查询全部及条件查询
-	public Vector query(int pageNum, int page,String name,String id) throws SQLException {
+	public Vector query(int pageNum, int page,String name,String id,String userid) throws SQLException {
 		
 		DBSource db = new DBSource(request); // 数据库对象
 		String sql = ""; // 查询用SQL语句
 		Vector vec = null; // 结果集
-		sql = "SELECT[id],[age] ,[name],[pwd],[addess]FROM [student].[dbo].[Table4]";
+		sql = "SELECT[id],[age] ,[name],[pwd],[userid],[addess]FROM [student].[dbo].[Table4]";
 		
 		if(name!=""&&id!=""){
 			sql += "where name like '%"+ MyTools.fixSql(this.getName()) +"%' and id='"+Integer.parseInt(this.getId())+"'";
 		}
 		
-		if(name!=""&&id=="") {
+		if(name!=""&&id==""&&userid=="") {
 			sql += "where name like '%"+ MyTools.fixSql(this.getName()) +"%'";
 		}
 		
-		if(id!=""&&name=="") {
+		if(id!=""&&name==""&&userid=="") {
 			sql += "where id='"+Integer.parseInt(this.getId())+"'";
+		}
+		
+		if(userid!=""&&name==""&&id=="") {
+			sql += "where userid='"+Integer.parseInt(this.getUserid())+"'";
 		}
 		
 		vec = db.getConttexJONSArr(sql,pageNum, page);
@@ -112,11 +118,11 @@ public class indexBean {
 	public void tgadd() throws SQLException{
 		DBSource db = new DBSource(request);// 数据库对象
 		String sql="";
-		int edition=0;
-		sql = "INSERT INTO Table4(age,name,pwd,addess) VALUES("+
+		sql = "INSERT INTO Table4(age,name,pwd,userid,addess) VALUES("+
 		"'" + MyTools.fixSql(this.getAge())+ "'," + 
 		"'" + MyTools.fixSql(this.getName())+ "'," + 
-		"'" + MyTools.fixSql(this.getPwd())+ "'," + 
+		"'" + MyTools.fixSql(this.getPwd())+ "'," +
+		"'" + MyTools.fixSql(this.getUserid())+ "'," +
 		"'" + MyTools.fixSql(this.getAddess())+ "')"; 
 		if(db.executeInsertOrUpdate(sql)){
 			setMsg("保存成功");
@@ -136,6 +142,7 @@ public class indexBean {
 				"age='" + MyTools.fixSql(this.getAge()) + "'," +
 				"name='" + MyTools.fixSql(this.getName()) + "'," +
 				"pwd='" + MyTools.fixSql(this.getPwd()) + "'," +
+				"userid='" + MyTools.fixSql(this.getUserid()) + "'," +
 				"addess='" + MyTools.fixSql(this.getAddess()) + "' " +
 				"where id='" + MyTools.fixSql(this.getId()) + "'";
 		if(db.executeInsertOrUpdate(sql)){
@@ -155,7 +162,7 @@ public class indexBean {
 	public indexBean() {
 		super();
 	}
-	public indexBean(String id, String age, String name, String pwd, String addess, String msg) {
+	public indexBean(String id, String age, String name, String pwd, String addess, String msg,String userid) {
 		super();
 		this.id = id;
 		this.age = age;
@@ -163,12 +170,19 @@ public class indexBean {
 		this.pwd = pwd;
 		this.addess = addess;
 		this.msg = msg;
+		this.userid=userid;
 	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public String getAge() {
 		return age;
