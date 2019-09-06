@@ -29,19 +29,17 @@
 </head>
 <body>
 
-<h1>测试成功ya！</h1>
 
-
+<h1>测试成功ya</h1>
 <!--  主页内容div -->
-<div id="box" style="width:100%; height: 500px;margin-bottom: 0px">
+<div id="box" class="easyui-layout" style="width:100%; height: 550px;margin-bottom: 0px">
 		<div data-options="region:'west',title:'左西',split:true," style="width: 180px;padding: 10px">
-			<%-- <a class="a1" href='#'>Ajax测试</a>
-			<a class="a5" href='<%=request.getContextPath()%>/add.jsp'>添加用户</a> --%>
+			<%-- <a class="a5" href='<%=request.getContextPath()%>/add.jsp'>添加用户</a>  --%>
 			<a class="a5" href='<%=request.getContextPath()%>/test.jsp'>测试页面</a>
 			<!-- 树 -->
 			<ul id="box2"></ul>
 		</div>
-		<div data-options="region:'center'" style="overflow: hidden;">
+	<div data-options="region:'center'"style="height: 100%">
 		
 		<!-- 起始页 -->
 		<!-- <div id="tabs">
@@ -50,64 +48,52 @@
 			</div>
 		</div> -->
 		
-		<!-- 起始页 -->
-		<!-- <div id="tabs">
-			<div title="起始页" style="padding: 0 10px">起始页</div>
-		</div> -->
-		
-		<div style="">
-		
 			<!-- 工具栏按钮 -->
-			<div data-options="region:'center'" style="width:100%;height:100%;">
-				<div  title="" style="background:#fafafa;height:30px;">
+	    	<div title="" style="background:#fafafa;height:60px;">
 					<table  class = "tablestyle" width = "100%">
 						<tr>
 							<td>
 								<a id="new"  onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-new'">新建</a>
 								<a id="edit" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-edit'">编辑</a>
-								<!-- <a id="specialEdit" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-edit'">特殊内容编辑</a> -->
+								<a id="specialEdit" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-edit'">特殊内容编辑</a>
 								<a id="delete" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-no'">删除</a>
-								<!-- <a id="delall" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-no'">全部删除</a> 
-								<a id="copy" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-begin'">复制</a>  -->
+								 <a id="delall" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-no'">全部删除</a> 
+								<a id="copy" onclick="doToolbar(this.id)" class="easyui-linkbutton" href="javascript:void(0);" data-options="plain:true,iconCls:'icon-begin'">复制</a> 
 							</td>
 						</tr>
 					</table>
-				</div>
-				
-				<!-- 条件搜索 -->
-				<table id="ee" singleselect="true" width="100%" class="tablestyle">
-				<tr>
-					<td style="width:100px;" class="titlestyle">模糊查询</td>
-					<td>
-						<input name="ZYDM_CX" id="name" class="easyui-textbox" style="width:180px;"/>
-					</td>
-					<td style="width:100px;" class="titlestyle">用户编号</td>
-					<td>
-						<input name="ZYMC_CX" id="id" class="easyui-textbox" style="width:180px;"/>
-					</td>
-					<td style="width:100px;" class="titlestyle">班级编号</td>
-					<td>
-						<input name="ZYMC_CX" id="userid" class="easyui-textbox" style="width:180px;"/>
-					</td>
-					<td style="width:196px;" align="center">
-						<a href="#" onclick="doToolbar(this.id)" id="query" class="easyui-linkbutton" plain="true" iconcls="icon-search">查询</a>
-					</td>				
-				</tr>
-		    </table>
+					<!-- 条件搜索 -->
+					<table id="ee" singleselect="true" width="100%" class="tablestyle">
+						<tr>
+							<td style="width:100px;" class="titlestyle">模糊查询</td>
+							<td>
+								<input name="name" id="name" class="easyui-textbox" style="width:180px;"/>
+							</td>
+							<td style="width:100px;" class="titlestyle">用户编号</td>
+							<td>
+								<input name="id" id="id" class="easyui-textbox" style="width:180px;"/>
+							</td>
+							<td style="width:100px;" class="titlestyle">班级编号</td>
+							<td>
+								<input name="userid" id="userid" class="easyui-textbox" style="width:180px;"/>
+							</td>
+							<td style="width:196px;" align="center">
+								<a href="#" onclick="doToolbar(this.id)" id="query" class="easyui-linkbutton" plain="true" iconcls="icon-search">查询</a>
+							</td>				
+						</tr>
+				    </table>
+					
 			</div>
 			
 			<!-- 数据表格 -->
-			<table id="teatable" class="tablestyle" width="666px">
-				<!-- 输入框 -->
-				<!-- <input class="easyui-searchbox" data-options="prompt:'请输入',searcher:doSearch" style="width:100%;max-width:300px;">	 -->
-			</table>
-		</div>
-			
+			<div  style="width: 100%;height: 449px">
+				<table id="teatable" class="tablestyle">
+				
+				</table>
+			</div>	
+	</div>
 		
-		</div>
-		
-		<div data-options="region:'south'" style="height: 60px;text-align: center;">@测试专用</div>
-	
+	 <div data-options="region:'south'" style="height:40px;text-align:center; padding:10px 10px;">@测试专用</div> 
 	
 </div>
 
@@ -189,7 +175,7 @@
 	
 	
 	initData(); //调用查询全部初始化信息方法
-
+	loadDialog();//初始化将dialog窗口隐藏
 
 //搜索框
 <%-- function doSearch(value){
@@ -236,18 +222,7 @@
  --%>
  
 $(document).ready(function(){
-	loadDialog();//初始化将dialog窗口隐藏
-	//查询全部
-	$(".a1").click(function name() {
-		var str='';
-		alert("1");
-		initData(); //调用查询全部初始化方法
-		
-	});
 	
-$("#box").layout({  //布局div
-		
-	});
 	
 $("#tabs").tabs({	//起始页
 	fit:true,
@@ -355,9 +330,9 @@ function doToolbar(iToolbar){
 			alertMsg("请选择一行数据");
 			return;
 		}else{
-			if(ID!=""){
-				ConfirmMsg("是否确定删除？", "dele()","");
-				}
+		if(ID!=""){
+			ConfirmMsg("是否确定删除？", "dele()","");
+			}
 		}
 		
 	}
@@ -393,15 +368,15 @@ function add() {
 			type:"post",
 			dataType:"json",
 			success:function(data){
-					if(data[0].MSG=="保存成功"){
-				  		alert("操作成功");
-				  		window.location="index.jsp";
-				  	}else{
-				  		alert("操作失败");
-				  		//window.location.reload();  //刷新当前页面
-				  	}
+			if(data[0].MSG=="保存成功"){
+		  		alert("操作成功");
+		  		window.location="index.jsp";
+		  	}else{
+		  		alert("操作失败");
+		  		//window.location.reload();  //刷新当前页面
+		  	}
 						
-				}
+			}
 					
 		}); 
 }
@@ -500,16 +475,15 @@ function finall(listData) {
 		queryParams: {"active":"queaudittg"}, --%>
 		data:listData,  //得到参数，下面直接取
 		loadMsg : "信息加载中请稍后!",//载入时信息
-		width:1722,//列宽度
-		height:438,
-		rownumbers: true,
-		animate:true,
+		width:'100%',//宽度
+		height:'100%',//高度
+		rownumbers: true,//是否显示行号
+		animate:true,//点展开或折叠是否显示动画效果
 		striped : true,//隔行变色
 		singleSelect : true,//单选模式
-		pagination:true,
-		fit:false,
-		fitColumns: true,//数据自动填充父容器
-		fitColumns: true,//设置边距
+		pagination:true,//是否显示底部分页工具栏
+		fit:true,//是否允许表格自动缩放，以适应父容器
+		fitColumns:true,//数据自动填充父容器
 		columns:[[
 			{field:'ckt',checkbox:false},
 			{field:'id',title:'编号',width:100,align:'center'},
@@ -530,11 +504,19 @@ function finall(listData) {
 				ADDESS=rowData.addess;
 		},
 		onUnselect:function(rowIndex,rowData){
-			alert("2");
+			alert("你已经取消选中！");
 		},
 		onLoadSuccess: function(data){
 			
-			alertMsg("数据查询成功！");
+			//alertMsg("数据查询成功！");
+			$.messager.show({
+				title:"温馨提示",
+				msg:"数据查询成功！",
+				timeout:3000,
+				showType:"slide",
+				
+			});
+			
 		},
 		onLoadError:function(none){
 			//alertMsg("系统错误！");

@@ -53,13 +53,19 @@ public class newindexBean {
 		String sql = ""; // 查询用SQL语句
 		Vector vec = null; // 结果集
 		
+			
 		sql = "SELECT [id],[userid],[nj] as text,'closed' as state, [tid] FROM [student].[dbo].[Njb] where tid='"+Integer.parseInt(this.getTid())+"'";
-
+		
 		//当userId不等于0的时候最后的节点状态为open，不为文件夹显示
-		if(!tid.equals("0")) {
+//		if(!tid.equals("0")) {
+//			sql = "SELECT [id],[userid],[nj] as text,'open' as state, [tid] FROM [student].[dbo].[Njb] where tid='"+Integer.parseInt(this.getTid())+"'";
+//
+//		}
+		if(!tid.equals("0")&&!tid.equals("1")) {
 			sql = "SELECT [id],[userid],[nj] as text,'open' as state, [tid] FROM [student].[dbo].[Njb] where tid='"+Integer.parseInt(this.getTid())+"'";
 
 		}
+		
 		vec = db.getConttexJONSArr(sql,0, 0);
 		return vec;
 		
