@@ -35,7 +35,7 @@
 <div id="box" class="easyui-layout" style="width:100%; height: 550px;margin-bottom: 0px">
 		<div data-options="region:'west',title:'左西',split:true," style="width: 180px;padding: 10px">
 			<%-- <a class="a5" href='<%=request.getContextPath()%>/add.jsp'>添加用户</a>  --%>
-			<a class="a5" href='<%=request.getContextPath()%>/test.jsp'>测试页面</a>
+			<a class="a5" href='<%=request.getContextPath()%>/index2.jsp'>测试页面</a>
 			<!-- 树 -->
 			<ul id="box2"></ul>
 		</div>
@@ -280,7 +280,7 @@ function doToolbar(iToolbar){
 	
 	
 	//点击查询
-	if(iToolbar == "query"){
+	if(iToolbar == "que"){
 		//全局变量得到数据
 		NAME = $('#name').textbox('getValue'); 
 		ID = $('#id').textbox('getValue');

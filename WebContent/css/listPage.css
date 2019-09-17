@@ -1,0 +1,12 @@
+/**
+ * createTime： 18.02.23
+ * createUser： 李宁 
+ * description： 列表页面样式文件
+ */
+/*列表页面日期输入框文字大小样式自适应，防止屏幕过小无法看见日期信息*/
+@media screen and ( max-width: 358px ) {
+	.datebox .textbox-text{
+		font-size:12px;
+		padding-left:0px;
+	}
+}

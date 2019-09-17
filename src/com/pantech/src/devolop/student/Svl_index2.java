@@ -116,7 +116,7 @@ public class Svl_index2 extends HttpServlet {
 			
 			try {
 				bean.setId(MyTools.StrFiltr(request.getParameter("id")));// id
-				System.out.println(request.getParameter("id") + "id值");
+				System.out.println(request.getParameter("name") + "id值");
 
 				jsonV = bean.query(pageNum,pageSize,name,id,userid); // 通过indexBean查询数据库Vector集合得到结果集
 				jal = (JSONArray) jsonV.get(2); // Vector转换JSON数据
