@@ -65,7 +65,8 @@ public class Svl_index2 extends HttpServlet {
 				//listData这个参数是个key，前台ajax回调函数中取这个名为key的数组
 				jal = JsonUtil.addJsonParams(jal, "listData", "{\"total\":" + MyTools.StrFiltr(jsonV.get(0)) + ",\"rows\":" + jal.toString() + "}");
 				
-				
+				System.out.println(jal.toString());
+			
 				response.getWriter().write(jal.toString());
 				TraceLog.Trace(jsonV.toString());
 

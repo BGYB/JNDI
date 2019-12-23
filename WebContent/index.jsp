@@ -34,8 +34,8 @@
 <!--  主页内容div -->
 <div id="box" class="easyui-layout" style="width:100%; height: 550px;margin-bottom: 0px">
 		<div data-options="region:'west',title:'左西',split:true," style="width: 180px;padding: 10px">
-			<%-- <a class="a5" href='<%=request.getContextPath()%>/add.jsp'>添加用户</a>  --%>
-			<a class="a5" href='<%=request.getContextPath()%>/index2.jsp'>测试页面</a>
+			<a class="a5" href='<%=request.getContextPath()%>/Import.jsp'>导入数据</a>
+			<%-- <a class="a5" href='<%=request.getContextPath()%>/Newindex2.jsp'>测试页面</a> --%>
 			<!-- 树 -->
 			<ul id="box2"></ul>
 		</div>
@@ -439,7 +439,7 @@ function initData() {
 		dataType:"json",
 		success:function(data) {
 			/* console.log(data); */
-			console.log("data[0]"+data[0].listData);			
+			console.log("data[0]:"+data[0].listData);			
 			finall(data[0].listData);
 		},
 	});

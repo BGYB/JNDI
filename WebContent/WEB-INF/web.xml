@@ -29,4 +29,14 @@
     <servlet-name>Svl_newindexBean</servlet-name>
     <url-pattern>/Svl_newindexBean</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Svl_Import</display-name>
+    <servlet-name>Svl_Import</servlet-name>
+    <servlet-class>com.pantech.src.devolop.student.Svl_Import</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Svl_Import</servlet-name>
+    <url-pattern>/Svl_Import</url-pattern>
+  </servlet-mapping>
 </web-app>

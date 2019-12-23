@@ -28,7 +28,7 @@
 		<script type="text/javascript" src="<%=request.getContextPath()%>/script/common/publicScript.js"></script>
 </head>
 <body>
-	  <h2>搜索框</h2>
+	<h2>搜索框</h2>
     <p>Click search button or press enter key in input box to do searching.</p>
     <div style="margin:20px 0;"></div>
     <div class="easyui-panel" style="width:100%;max-width:400px;padding:30px 60px;">
